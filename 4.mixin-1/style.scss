@@ -1,0 +1,59 @@
+// referencing partials
+
+@import "./resets";
+
+
+// varibles
+$primary-color:black;
+$secondary-color:white;
+
+// maps
+$font-colors:(
+    "r":red,
+    "b":blue,
+    "g":green,
+);
+
+// functions
+@function colors($color-name){
+    @return map-get($font-colors, $color-name );
+}
+
+// mixin
+@mixin flexCenter($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+body{
+    background: $primary-color;
+    // color: $secondary-color;
+    color: colors(r);
+}
+// nesting
+body{
+    background: $primary-color;
+    @include flexCenter(column);
+
+    p{
+        color: colors(g);
+    }
+
+}
+
+// parent referencing
+.main{
+    @include flexCenter(column);
+    color: map-get($font-colors,b );
+
+    #{&}-para{
+        color: white;
+        @include flexCenter(row);
+
+        &:hover{
+            color: palevioletred;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+// medium screen 
+
+@include media-md{
+    // home
+    .menu-btn{
+        visibility: hidden;
+    }
+    .nav{
+        visibility: visible;
+        
+        ul{
+            display: block;
+            transform: translateY(0);
+            height: 100%;
+            background: transparent;
+            text-align: right;
+
+            li{
+                display: inline;
+                padding-right: 1.5rem;
+            }
+            a{
+                font-size: 1.5rem;
+            }
+        }
+
+    }
+
+    // about
+    .about_boi{
+        font-size: 1.5rem;
+    }
+
+    // project
+    .projects{
+        &_boi-img{
+            height: 40vh;
+        }
+        &_items{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .text-secondary{
+            font-size: 3rem;
+        }
+    }
+    // contact
+    .contact_list{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .contact{
+        .social-icons{
+            margin-top: 3rem;
+        }
+
+    }
+
+}
+
+// large screen
+
+@include media-lg{
+    //projects
+    .projects{
+        &_items{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .text-secondary{
+            font-size: 3rem;
+        }
+    }
+    // contact
+    .contact_list{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+//Extra large screen
+@include media-xl{
+    // project
+    .project_boi-img{
+        height: 50vh;
+    }
+}

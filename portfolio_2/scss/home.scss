@@ -1,0 +1,58 @@
+@import "./config";
+@import "./home";
+@import "./menu";
+@import "./about";
+@import "./project";
+@import "./contact";
+@import "./responsive";
+
+body{
+    background:$primary-color;
+    color: text-color($primary-color);
+    height: 100vh;
+    line-height: 1;
+}
+a{
+    color: text-color($primary-color);
+    text-decoration: none;
+}
+.text-secondary{
+    color: $secondary-color;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    padding: 1rem;  /* 1rem = 16px , by default */
+    z-index: 2;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+
+    .social-icons{
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+
+        a{
+            font-size: 1.3rem;
+            padding: 0.5rem;
+            @include ease;
+            &:hover{
+                color: $secondary-color;
+            }
+        }
+    }
+
+    footer{
+        position: fixed;
+        bottom: 0.5rem;
+        right: 1rem;
+        padding: 1rem;
+        text-align: right;
+        font-size: 1rem;
+        color: text-color($primary-color);
+    }
+}

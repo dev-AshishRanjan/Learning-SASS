@@ -1,0 +1,95 @@
+.projects{
+    padding-bottom: 2rem;
+
+    &_boi-img{
+        height: 50vh;
+        width: 100%;
+        background: linear-gradient(90deg,rgba(39, 0, 0, 0.719),rgba(161, 161, 255, 0.164))
+        ,url("../images/home.jpg") center  bottom /cover ;
+        background-attachment: fixed;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        .text-secondary{
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    
+
+    &_items{
+        width: 60vw;
+        margin: 2rem auto 0 auto;
+        // display: grid;
+        // grid-template-columns: 1fr;
+        // grid-gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+
+        
+    }
+    &_item{
+        position: relative;
+        border-bottom: 5px solid $secondary-color;
+        overflow: hidden;
+        cursor: pointer;
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: 100%;
+            left:0;
+            height: 100%;
+            width: 100%;
+            background: $secondary-color;
+            opacity: 0;
+            @include ease
+        }
+        &:hover{
+            &::after{
+                top: 0;
+                opacity: 0.9;
+            }
+            .projects_btn
+            {
+                opacity: 1;
+            }
+        }
+    }
+
+    &_btns{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+    &_btn{
+        opacity: 0;
+        color: text-color($secondary-color);
+        @include ease;
+
+        &:hover{
+            color:text-color(text-color($secondary-color)) ;
+        }
+    }
+
+    .social-icons{
+        display: flex;
+        flex-direction: column;
+    }
+    footer{
+        transform:
+            rotate(90deg)
+            translate(-3rem,-5rem);
+    }
+}

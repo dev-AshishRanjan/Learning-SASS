@@ -1,0 +1,86 @@
+// referencing partials
+
+@import "./resets";
+
+
+// varibles
+$primary-color:black;
+$secondary-color:white;
+
+// maps
+$font-colors:(
+    "r":red,
+    "b":blue,
+    "g":green,
+);
+
+// functions
+@function colors($color-name){
+    @return map-get($font-colors, $color-name );
+}
+
+// mixin--1  ->code snippet
+@mixin flexCenter($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+// mixin--2 ->theme change
+@mixin theme($light-theme:true) {
+    @if $light-theme{
+        background: lighten($primary-color,100%);
+        color: darken($secondary-color,100%);
+    }
+}
+
+// mixin--3 -> media query
+@mixin mobile {
+    @media(max-width:800px){
+        @content;
+    }
+}
+
+body{
+    background: $primary-color;
+    // color: $secondary-color;
+    color: $secondary-color;
+}
+// nesting
+body{
+    background: $primary-color;
+    @include flexCenter(column);
+
+    p{
+        color: colors(g);
+    }
+
+}
+
+// parent referencing
+.main{
+    @include flexCenter(column);
+    color: map-get($font-colors,b );
+
+    #{&}-para{
+        color: white;
+        @include flexCenter(row);
+
+        &:hover{
+            color: palevioletred;
+        }
+    }
+}
+
+// using mixin-2
+.light{
+    @include theme($light-theme:true);
+}
+
+// using mixin -3
+body{
+    @include mobile{
+        flex-direction: row;
+    }
+}

@@ -1,0 +1,44 @@
+// referencing partials
+
+@import "./resets";
+
+
+// varibles
+$primary-color:black;
+$secondary-color:white;
+
+// maps
+$font-colors:(
+    "r":red,
+    "b":blue,
+    "g":green,
+);
+
+// functions
+@function colors($color-name){
+    @return map-get($font-colors, $color-name );
+}
+
+body{
+    background: $primary-color;
+    // color: $secondary-color;
+    color: colors(r);
+}
+// nesting
+body{
+    background: $primary-color;
+    p{
+        color: colors(g);
+    }
+}
+
+// parent referencing
+.main{
+    color: map-get($font-colors,b );
+    #{&}-para{
+        color: white;
+        &:hover{
+            color: palevioletred;
+        }
+    }
+}

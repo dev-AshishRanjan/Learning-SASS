@@ -1,0 +1,64 @@
+.about{
+    padding-bottom: 2rem;
+
+    &_boi-img{
+        height: 70vh;
+        width: 100%;
+        background: linear-gradient(90deg,rgba(39, 0, 0, 0.719),rgba(161, 161, 255, 0.164))
+        ,url("../images/home.jpg") center  bottom /cover ;
+        background-attachment: fixed;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        p{
+            margin-bottom: 2rem;
+        }
+    }
+
+    &_boi{
+        width: 85%;
+        text-align: center;
+
+        .text-secondary{
+            padding-bottom: 1rem;
+        }
+    }
+
+    .codes_exp{
+        width: 60vw;
+        margin: 2rem auto 0 auto;
+        // display: grid;
+        // grid-template-columns: 1fr;
+        // grid-gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+
+        .code{
+            background: lighten($primary-color,10%);
+            padding: 0.5rem;
+            border-bottom: 5px solid $secondary-color;
+
+            h2,h3{
+                margin: 0.5rem 0;
+            }
+            p{
+                margin: 0.3rem 0;
+            }
+        }
+    }
+
+    .social-icons{
+        display: flex;
+        flex-direction: column;
+    }
+    footer{
+        transform:
+            rotate(90deg)
+            translate(-3rem,-5rem);
+    }
+}
